@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://kit.fontawesome.com/6288969100.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/filereader.css">
+</head>
+<body>
+    <!--Home button-->
+    <div class=" home=cont">
+        <a href="/" style="text-decoration: none;">
+            <i class="fa-solid fa-house"></i> HOME 
+        </a>
+    </div>
+    <!--title of page and File name which we are reading-->
+    <h1><%= title %></h1>
+
+    <h2><%= file.originalname %></h2>
+
+    <!-- Search Bar -->
+    <div class="search-data">
+        <form action="/view/<%= file._id %>" method="get">
+        
+            <input type="text" name="serachs" class="search-input" placeholder="Type anything to Search" value="<%= searchQuery || '' %>">
+        
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        
+    </form>
+
+    </div>
+    
+<!-- Table to Show CSV File data -->
+    <table class="table">
+        <thead>
+            <tr>
+                <% for (let header of tableHeaders) { %>
+                    <th><%= header %></th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let row of tableRows) { %>
+                <tr>
+                    <% for (let header of tableHeaders) { %>
+                        <td><%= row[header] %></td>
+                    <% } %>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+   
+</body>
+</html>

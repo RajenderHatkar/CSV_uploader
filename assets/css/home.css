@@ -1,0 +1,95 @@
+body{
+    margin: 0px;
+    background-color:bisque;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+.content-tab{
+   margin: 20px;
+   padding: 20px;
+
+}
+/* file uploding*/
+.upload-data{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 13px;
+    padding: 5px;
+    background-color: rgb(48, 87, 66);
+    border-radius: 20px;
+    height: fit-content;
+    width: 30%;
+    position: relative;
+    left: 30%;
+} 
+.upload-box{
+    background-color: rgb(231, 221, 221);
+   margin: 5px;
+   padding: 5px;
+   border-radius: 2.5px;
+}
+.upload-box:hover{
+    
+    background-color: rgb(204, 119, 7);
+}
+h1{
+    color: rgb(233, 69, 10);
+    padding: 5px;
+    text-align: center;
+}
+.files-container{
+    padding: 10px;
+    margin: 5px;
+    
+}
+/* serach bar*/
+.search-data input{
+    padding-left: 3px;
+    margin: 5px;
+    width: 25%;
+    height: 30px;
+    border:none;
+    border-radius: 10px;
+    font-style: italic;
+}
+.search-data button{
+    height: 30px;
+    background-color: bisque;
+    border: none;
+}
+.search-data button:hover{
+    background-color: rgb(224, 86, 12);
+    border-radius: 40%;
+}
+/* uploaded files*/
+.files{
+    background-color: rgb(216, 232, 232);
+    padding: 10px;
+    border-radius: 10px;
+    width: 70%;
+    border-collapse: separate; /* This is important to enable spacing between rows */
+    border-spacing: 10px;
+}
+
+.content-view tr {
+    position: relative;
+    left:15px;
+
+}
+td{
+    border-radius: 2px;
+}
+th {
+    background-color:  #96904a;;
+    border-radius: 2px;
+  }
+/* Style even rows with one color */
+  tr:nth-child(even) {
+    background-color: #989494; /* Change this color as needed */
+  }
+  
+  /* Style odd rows with a different color */
+  tr:nth-child(odd) {
+    background-color: #dbdacf; /* Change this color as needed */
+  }

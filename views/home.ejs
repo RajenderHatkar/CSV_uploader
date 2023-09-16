@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://kit.fontawesome.com/6288969100.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/home.css">
+    
+</head>
+<body>
+    <!-- Application name and Upload a file-->
+    <h1>CSV File Uploader</h1>
+    <div class="content-tab">
+         
+        <div class="upload-data">
+            <h3>Upload Files</h3>
+            <div class="upload-box" onclick="handleUploadClick()">
+                <i class="fa-solid fa-file"></i>
+                <span> click here to add the file</span>
+            </div>
+            <p>Supports CSV files only</p>
+
+        </div>
+        <!--Serach bar to search the files which are listed-->
+        <div class="files-container">
+
+            <div class=" search-data">
+                <form action="/" class="search-bar" method="get">
+                    <input type="text" name="search" class="search-input" placeholder="Type full filename to Search" value="<%= searchVal || '' %>">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+    
+            </div>
+
+            <h2>Files</h2>
+            <!--uploded files list-->
+            <table class="files">
+                <thead class="content-view">
+                    <tr>
+                        <th>SL. No</th>
+                        <th>File Name</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody class="content-view">
+                    <% if (searchVal && searchVal !== '') { %>
+                        <!-- Search value is provided -->
+                        <% for (let i = 0; i < files.length; i++) { %>+
+                            <% let sln = i + 1; %>
+                            <% let file = files[i]; %>
+                            <% if (file.originalname.includes(searchVal)) { %>
+                                <tr>
+                                    <td><%= sln %></td>
+                                    <td><%= file.originalname %></td>
+                                    <td><a href="/view/<%= file._id %>">View</a></td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    <% } else { %>
+                        <!-- No search value provided, display all data -->
+                        <% for (let i = 0; i < files.length; i++) { %>
+                            <% let sln = i + 1; %>
+                            <% let file = files[i]; %>
+                            <tr>
+                                <td><%= sln %></td>
+                                <td><%= file.originalname %></td>
+                                <td><a href="/view/<%= file._id %>">View</a></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/assets/js/home.js"></script>
+</body>
+</html>
