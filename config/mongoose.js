@@ -1,7 +1,8 @@
 //mongooDB connection 
 const mongoose=require('mongoose');
+const url=process.env.DB_URL
 
-mongoose.connect('mongodb://127.0.0.1:27017/CSV_File_uploder_Test');
+mongoose.connect(url);
 
 const db=mongoose.connection;
 
